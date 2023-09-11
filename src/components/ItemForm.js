@@ -36,7 +36,7 @@ function ItemForm({ onSubmit, isEdit, initialValues }) {
       setBuyingPrice(formData.itemBuyingPrice);
       setSellingPrice(formData.itemSellingPrice);
     }
-  }, [isEdit, formData]);
+  }, [isEdit, initialValues, formData]);
 
   return (
     <form onSubmit={handleSubmit}>

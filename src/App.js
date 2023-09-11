@@ -1,9 +1,9 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import React, {useEffect } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
-import { LoginCallback, Security, useOktaAuth } from '@okta/okta-react';
-import Home from './Inventory/Home';
-import EditItem from './Inventory/EditItem';
+import { LoginCallback, Security } from '@okta/okta-react';
+import Home from './components/Home';
+import EditItem from './components/EditItem';
 
 const oktaAuth = new OktaAuth({
   issuer: 'https://dev-07402320.okta.com/oauth2/default',

@@ -1,7 +1,7 @@
 import { useOktaAuth } from "@okta/okta-react";
 import axios from 'axios';
-import React, { useState, useEffect, useContext } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import React, {useEffect} from 'react';
+import { useLocation, useNavigate} from 'react-router-dom';
 import ItemForm from './ItemForm';
 
 function EditItem(props) {
@@ -11,7 +11,11 @@ function EditItem(props) {
   const { oktaAuth, authState } = useOktaAuth();
   const navigate = useNavigate();
 
-  console.log(itemData);
+  useEffect(() => {
+    if (!authState?.isAuthenticated) {
+      navigate('/');
+    }
+  }, [authState, navigate]);
 
   const handleSubmit = async (formData) => {
     const token = oktaAuth.getAccessToken();
